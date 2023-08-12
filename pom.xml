@@ -19,14 +19,32 @@
     <url>https://github.com/ngeor/yak4j-xml</url>
   </scm>
   <properties>
+    <jacoco.unit-tests.limit.branch-ratio>99%</jacoco.unit-tests.limit.branch-ratio>
+    <jacoco.unit-tests.limit.class-complexity>10</jacoco.unit-tests.limit.class-complexity>
     <!--
     jacoco thresholds
     -->
     <jacoco.unit-tests.limit.instruction-ratio>99%</jacoco.unit-tests.limit.instruction-ratio>
-    <jacoco.unit-tests.limit.branch-ratio>99%</jacoco.unit-tests.limit.branch-ratio>
-    <jacoco.unit-tests.limit.class-complexity>10</jacoco.unit-tests.limit.class-complexity>
     <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
   </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.10.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-bom</artifactId>
+        <version>3.24.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -128,8 +146,8 @@
         <jdk>[11,]</jdk>
       </activation>
       <properties>
-        <jaxb.version>2.3.0</jaxb.version>
         <activation.version>1.1.1</activation.version>
+        <jaxb.version>2.3.0</jaxb.version>
       </properties>
       <dependencies>
         <dependency>
