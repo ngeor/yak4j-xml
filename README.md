@@ -6,6 +6,10 @@ XML utilities.
 [![Java CI with Maven](https://github.com/ngeor/yak4j-xml/actions/workflows/maven.yml/badge.svg)](https://github.com/ngeor/yak4j-xml/actions/workflows/maven.yml)
 [![javadoc](https://javadoc.io/badge2/com.github.ngeor/yak4j-xml/javadoc.svg)](https://javadoc.io/doc/com.github.ngeor/yak4j-xml)
 
+**Archived repository!**
+The repository is **archived** and will be **removed**.
+It has been migrated [here](https://github.com/ngeor/kamino/tree/master/libs/yak4j-xml).
+
 ## Usage
 
 You can easily serialize and (de)serialize objects into XML with
