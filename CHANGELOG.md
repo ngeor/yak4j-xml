@@ -1,7 +1,31 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.19.2] - 2025-01-25
+
+### Miscellaneous Tasks
+
+- Rename job
+
+## [0.19.1] - 2025-01-25
+
+### Bug Fixes
+
+- Workaround to import gpg key
+
+### Miscellaneous Tasks
+
+- Upgrade maven gpg plugin and nexus staging maven plugin
+
+## [0.19.0] - 2025-01-25
+
+### Bug Fixes
+
+- Fix import order
+
+### Features
+
+- Use tag based release workflow
 
 ### Miscellaneous Tasks
 
@@ -9,6 +33,13 @@ All notable changes to this project will be documented in this file.
 - Updating parent from 2.1.0 to 2.4.0
 - Updating parent from 2.4.0 to 3.0.0
 - Updating parent from 3.0.0 to 3.1.1
+- Update dependency com.github.ngeor:java to v3.2.0
+- Update dependency com.github.ngeor:java to v3.3.0
+- Removed funding file
+- Upgrade to Java 21
+- Upgraded dependencies and plugins
+- Upgraded release flow
+- Updated badges
 
 ## [0.17.1] - 2022-01-27
 
