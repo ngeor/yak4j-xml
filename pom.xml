@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.ngeor</groupId>
   <artifactId>yak4j-xml</artifactId>
-  <version>0.19.2-SNAPSHOT</version>
+  <version>0.19.2</version>
   <packaging>jar</packaging>
   <name>yak4j-xml</name>
   <description>yak shaving for Java: XML utilities</description>
@@ -26,7 +26,7 @@
   <scm>
     <connection>scm:git:https://github.com/ngeor/yak4j-xml.git</connection>
     <developerConnection>scm:git:git@github.com:ngeor/yak4j-xml.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>v0.19.2</tag>
     <url>https://github.com/ngeor/yak4j-xml</url>
   </scm>
 
@@ -121,7 +121,7 @@
               <version>${palantir.version}</version>
               <style>PALANTIR</style>
             </palantirJavaFormat>
-            <removeUnusedImports />
+            <removeUnusedImports/>
           </java>
         </configuration>
       </plugin>
