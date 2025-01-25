@@ -32,3 +32,19 @@ class Demo {
     }
 }
 ```
+
+## Developer Tips
+
+Upgrade maven properties:
+
+```sh
+mvn -Pgpg -Dmaven.version.ignore='.*-beta.*' versions:update-properties
+```
+
+Prepare a release:
+
+```sh
+mvn release:clean
+mvn -DtagNameFormat='v@{project.version}' release:prepare
+mvn release:clean
+```
