@@ -119,30 +119,40 @@
             <verifyFailOn>strict</verifyFailOn>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>${spotless-maven-plugin.version}</version>
+          <configuration>
+            <ratchetFrom>origin/master</ratchetFrom>
+            <java>
+              <palantirJavaFormat>
+                <version>${palantir.version}</version>
+                <style>PALANTIR</style>
+              </palantirJavaFormat>
+              <removeUnusedImports/>
+            </java>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${maven-gpg-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${nexus-staging-maven-plugin.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
-      <plugin>
-        <groupId>com.diffplug.spotless</groupId>
-        <artifactId>spotless-maven-plugin</artifactId>
-        <version>${spotless-maven-plugin.version}</version>
-        <configuration>
-          <!-- TODO set to origin/master once spotless is configured to break the build -->
-          <ratchetFrom>NONE</ratchetFrom>
-          <java>
-            <palantirJavaFormat>
-              <version>${palantir.version}</version>
-              <style>PALANTIR</style>
-            </palantirJavaFormat>
-            <removeUnusedImports/>
-          </java>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -187,7 +197,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>${maven-gpg-plugin.version}</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -201,7 +210,6 @@
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>${nexus-staging-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
               <serverId>ossrh</serverId>
@@ -214,8 +222,7 @@
       </build>
     </profile>
     <profile>
-      <!-- automatically sort the pom.xml by default (developer's machine) -->
-      <id>sortpom-sort</id>
+      <id>local</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
@@ -233,12 +240,23 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>com.diffplug.spotless</groupId>
+            <artifactId>spotless-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>apply</goal>
+                </goals>
+                <phase>validate</phase>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
     <profile>
-      <!-- automatically verify the pom.xml is sorted on the CI server -->
-      <id>sortpom-verify</id>
+      <id>ci</id>
       <activation>
         <property>
           <name>env.CI</name>
@@ -253,6 +271,18 @@
               <execution>
                 <goals>
                   <goal>verify</goal>
+                </goals>
+                <phase>validate</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.diffplug.spotless</groupId>
+            <artifactId>spotless-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
                 </goals>
                 <phase>validate</phase>
               </execution>
