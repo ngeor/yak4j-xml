@@ -46,5 +46,7 @@ Prepare a release:
 ```sh
 mvn release:clean
 mvn -DtagNameFormat='v@{project.version}' release:prepare
+// alternatively to not push changes and also format the pom.xml again
+mvn -DtagNameFormat='v@{project.version}' -DpushChanges=false -DcompletionGoals=validate release:prepare
 mvn release:clean
 ```
