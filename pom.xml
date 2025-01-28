@@ -270,7 +270,9 @@
     <profile>
       <id>local</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
+        <property>
+          <name>!env.CI</name>
+        </property>
       </activation>
       <build>
         <plugins>
@@ -305,7 +307,8 @@
       <id>ci</id>
       <activation>
         <property>
-          <name>env.CI</name>
+          <name>env.GITHUB_REF_TYPE</name>
+          <value>branch</value>
         </property>
       </activation>
       <build>
