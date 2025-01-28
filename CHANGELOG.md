@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Miscellaneous Tasks
+
+- Updated changelog
+- Configure sortpom to both format and verify
+- Hide Maven Download progress during build
+- Set `project.build.sourceEncoding` to `UTF-8`
+- Configured `spotless` to break the build
+- Configured `jacoco` for code coverage
+- Include `jacoco` report in project's site
+- Update readme
+- Do not run spotless and sortpom checks for tags
+
 ## [0.19.2] - 2025-01-25
 
 ### Miscellaneous Tasks
