@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.19.4] - 2025-11-15
+
+### Miscellaneous Tasks
+
+- Publish to Central Maven
+
+## [0.19.3] - 2025-01-28
 
 ### Miscellaneous Tasks
 
@@ -14,6 +20,7 @@ All notable changes to this project will be documented in this file.
 - Include `jacoco` report in project's site
 - Update readme
 - Do not run spotless and sortpom checks for tags
+- Update changelog
 
 ## [0.19.2] - 2025-01-25
 
